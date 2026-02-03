@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://hospital-management-backend-h0fo.onrender.com";
+
 
 // ================= REGISTER =================
 export async function registerUser(data) {

@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://hospital-management-backend-h0fo.onrender.com";
+
 
 // 🔑 auth helper
 const authHeader = () => ({
@@ -54,14 +55,11 @@ export const getAllDepartments = () =>
 
 export const addDepartment = (data) =>
   axios.post(
-    "http://localhost:8080/department",
+    `${API_URL}/department`,
     data,
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`
-      }
-    }
+    authHeader()
   );
+
 
 
 /* ================= AUTH ================= */

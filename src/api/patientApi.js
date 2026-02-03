@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080";
+const API_URL = "https://hospital-management-backend-h0fo.onrender.com";
+
 
 const getToken = () => localStorage.getItem("token");
 
