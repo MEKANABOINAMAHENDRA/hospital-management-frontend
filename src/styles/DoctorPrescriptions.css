@@ -1,0 +1,71 @@
+.dp-page {
+  padding: 30px;
+  background: #f4f6f8;
+  min-height: 100vh;
+}
+
+.dp-card {
+  background: #ffffff;
+  padding: 28px;
+  margin: 0 auto 30px auto;
+  border-radius: 12px;
+  max-width: 900px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.dp-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.dp-header p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.dp-header b {
+  color: #1976d2;
+}
+
+.dp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.dp-table th {
+  background: #1976d2;
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+}
+
+.dp-table td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.dp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.dp-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+}
+
+.dp-actions button:first-child {
+  background: #ff9800;
+}
+
+.dp-actions button:last-child {
+  background: #4caf50;
+}

@@ -1,0 +1,301 @@
+.form-card {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 25px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin: 6px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.primary {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  background: #0d6efd;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+}
+
+button.primary:hover {
+  background: #084298;
+}
+
+.info-box {
+  background: #eef6ff;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+
+.table-card {
+  margin: 10px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 6px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  margin-top: 10px;
+  color: #555;
+}
+/* ================= NURSE DASHBOARD ================= */
+
+.nurse-container {
+  padding: 40px;
+  min-height: calc(100vh - 70px);
+  background: #f4f7fb;
+}
+
+.nurse-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 28px;
+  color: #1e293b;
+  font-weight: 700;
+}
+
+/* Cards grid */
+.nurse-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Card base */
+.card {
+  background: white;
+  border-radius: 14px;
+  padding: 30px 25px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.07;
+}
+
+.card span {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.card small {
+  display: block;
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+/* Hover animation */
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= COLOR VARIANTS ================= */
+
+.card.primary {
+  color: #2563eb;
+}
+.card.primary::before {
+  background: #2563eb;
+}
+
+.card.warning {
+  color: #d97706;
+}
+.card.warning::before {
+  background: #d97706;
+}
+
+.card.success {
+  color: #059669;
+}
+.card.success::before {
+  background: #059669;
+}
+
+/* Emoji size */
+.card {
+  font-size: 38px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nurse-container {
+    padding: 20px;
+  }
+  .nurse-title {
+    font-size: 22px;
+  }
+}
+
+/* ================= TODAY APPOINTMENTS ================= */
+
+.table-wrapper {
+  margin-top: 25px;
+  overflow-x: auto;
+}
+
+.appointment-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.appointment-table th,
+.appointment-table td {
+  padding: 14px 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.appointment-table th {
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+}
+
+.appointment-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.appointment-table tr:hover {
+  background: #eef2ff;
+}
+
+/* Status badges */
+.status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status.booked {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status.approved {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.status.completed {
+  background: #f0fdf4;
+  color: #166534;
+}
+
+/* Empty state */
+.empty-box {
+  margin: 40px auto;
+  padding: 30px;
+  max-width: 400px;
+  text-align: center;
+  font-size: 16px;
+  color: #64748b;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= ONLINE REQUESTS ================= */
+
+.request-card {
+  background: white;
+  padding: 18px 22px;
+  margin: 15px auto;
+  max-width: 700px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.25s ease;
+}
+
+.request-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 30px rgba(0,0,0,0.12);
+}
+
+.request-info b {
+  font-size: 16px;
+}
+
+.request-info small {
+  color: #64748b;
+}
+
+/* Action buttons */
+.actions button {
+  margin-left: 10px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.actions .approve {
+  background: #16a34a;
+  color: white;
+}
+
+.actions .approve:hover {
+  background: #15803d;
+}
+
+.actions .reject {
+  background: #dc2626;
+  color: white;
+}
+
+.actions .reject:hover {
+  background: #b91c1c;
+}
+
