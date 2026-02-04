@@ -5,7 +5,6 @@ import { getToken } from "../api/authApi";
 export default function ProtectedRoute({ children, allowedRoles }) {
   const token = getToken();
 
-  // 🔴 Not logged in
   if (!token) {
     return <Navigate to="/login" replace />;
   }
@@ -13,17 +12,15 @@ export default function ProtectedRoute({ children, allowedRoles }) {
   let decoded;
   try {
     decoded = jwtDecode(token);
-  } catch (err) {
+  } catch {
     return <Navigate to="/login" replace />;
   }
 
-  const role = decoded.role; // ROLE FROM JWT
+  const role = decoded.role; // ADMIN / PATIENT / DOCTOR / NURSE
 
-  // 🔴 Role not allowed
   if (allowedRoles && !allowedRoles.includes(role)) {
     return <Navigate to="/login" replace />;
   }
 
-  // ✅ Access allowed
   return children;
 }
