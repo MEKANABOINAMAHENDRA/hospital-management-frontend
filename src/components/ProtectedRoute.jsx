@@ -5,7 +5,10 @@ import { getToken } from "../api/authApi";
 export default function ProtectedRoute({ children, allowedRoles }) {
   const token = getToken();
 
-  if (!token) return <Navigate to="/login" replace />;
+  // 1️⃣ Not logged in
+  if (!token) {
+    return <Navigate to="/login" replace />;
+  }
 
   let decoded;
   try {
@@ -14,11 +17,14 @@ export default function ProtectedRoute({ children, allowedRoles }) {
     return <Navigate to="/login" replace />;
   }
 
-  const role = decoded.role; // ROLE_PATIENT etc
+  // 🔥 Normalize role (space-safe)
+  const role = decoded.role.replace(/\s+/g, "");
 
-  if (!allowedRoles.includes(role)) {
+  // 2️⃣ Role NOT allowed → redirect
+  if (allowedRoles && !allowedRoles.includes(role)) {
     return <Navigate to="/login" replace />;
   }
 
+  // 3️⃣ Role allowed → show page
   return children;
 }
