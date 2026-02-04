@@ -24,18 +24,19 @@ const role = decoded.role; // ROLE_PATIENT / ROLE_ADMIN / ROLE_DOCTOR / ROLE_NUR
 localStorage.setItem("token", token);
 localStorage.setItem("role", role);
 
-// ✅ Redirect
 if (role === "ROLE_PATIENT") {
-  navigate("/dashboard");
+  navigate("/dashboard", { replace: true });
 } else if (role === "ROLE_DOCTOR") {
-  navigate("/doctor/dashboard");
+  navigate("/doctor/dashboard", { replace: true });
 } else if (role === "ROLE_NURSE") {
-  navigate("/nurse/dashboard");
+  navigate("/nurse/dashboard", { replace: true });
 } else if (role === "ROLE_ADMIN") {
-  navigate("/admin/dashboard");
+  navigate("/admin/dashboard", { replace: true });
 } else {
+  console.error("UNKNOWN ROLE FROM JWT:", role);
   setMsg("Unknown role");
 }
+
 
 
     } catch (err) {
