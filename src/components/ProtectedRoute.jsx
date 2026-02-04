@@ -4,10 +4,7 @@ import { getToken } from "../api/authApi";
 
 export default function ProtectedRoute({ children, allowedRoles }) {
   const token = getToken();
-
-  if (!token) {
-    return <Navigate to="/login" replace />;
-  }
+  if (!token) return <Navigate to="/login" replace />;
 
   let decoded;
   try {
@@ -16,9 +13,9 @@ export default function ProtectedRoute({ children, allowedRoles }) {
     return <Navigate to="/login" replace />;
   }
 
-  const role = decoded.role; // ADMIN / PATIENT / DOCTOR / NURSE
+  const role = decoded.role; // PATIENT / ADMIN / DOCTOR / NURSE
 
-  if (allowedRoles && !allowedRoles.includes(role)) {
+  if (!allowedRoles.includes(role)) {
     return <Navigate to="/login" replace />;
   }
 

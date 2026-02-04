@@ -16,19 +16,19 @@ export default function Login() {
     try {
       const token = await loginUser(form);
 
-      // Decode JWT
-      const decoded = jwtDecode(token);
-const role = decoded.role; // ROLE_PATIENT
+const decoded = jwtDecode(token);
+console.log("JWT DECODED:", decoded);
 
+const role = decoded.role; // PATIENT / ADMIN / DOCTOR / NURSE
 localStorage.setItem("role", role);
 
-if (role === "ROLE_PATIENT") {
+if (role === "PATIENT") {
   navigate("/dashboard");
-} else if (role === "ROLE_DOCTOR") {
+} else if (role === "DOCTOR") {
   navigate("/doctor/dashboard");
-} else if (role === "ROLE_NURSE") {
+} else if (role === "NURSE") {
   navigate("/nurse/dashboard");
-} else if (role === "ROLE_ADMIN") {
+} else if (role === "ADMIN") {
   navigate("/admin/dashboard");
 } else {
   setMsg("Unknown role");
