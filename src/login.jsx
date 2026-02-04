@@ -18,25 +18,21 @@ export default function Login() {
 
       // Decode JWT
       const decoded = jwtDecode(token);
-      console.log("JWT DECODED:", decoded);
+const role = decoded.role; // ROLE_PATIENT
 
-      const role = decoded.role; // ✅ PATIENT / ADMIN / DOCTOR / NURSE
+localStorage.setItem("role", role);
 
-      // Save role
-      localStorage.setItem("role", role);
-
-      // Redirect
-      if (role === "PATIENT") {
-        navigate("/dashboard");
-      } else if (role === "DOCTOR") {
-        navigate("/doctor/dashboard");
-      } else if (role === "NURSE") {
-        navigate("/nurse/dashboard");
-      } else if (role === "ADMIN") {
-        navigate("/admin/dashboard");
-      } else {
-        setMsg("Unknown role");
-      }
+if (role === "ROLE_PATIENT") {
+  navigate("/dashboard");
+} else if (role === "ROLE_DOCTOR") {
+  navigate("/doctor/dashboard");
+} else if (role === "ROLE_NURSE") {
+  navigate("/nurse/dashboard");
+} else if (role === "ROLE_ADMIN") {
+  navigate("/admin/dashboard");
+} else {
+  setMsg("Unknown role");
+}
 
     } catch (err) {
       setMsg("Invalid username or password");
