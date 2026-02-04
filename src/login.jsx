@@ -20,24 +20,24 @@ const decoded = jwtDecode(token);
 console.log("JWT DECODED:", decoded);
 
 // 🔥 FIX SPACE ISSUE
-const role = decoded.role.replace(/\s+/g, "");
+const rawRole = decoded.role;        // ROLE_ADMIN
+const role = rawRole.replace("ROLE_", ""); // ADMIN
 
 localStorage.setItem("token", token);
 localStorage.setItem("role", role);
 
-if (role === "ROLE_PATIENT") {
+if (role === "PATIENT") {
   navigate("/dashboard", { replace: true });
-} else if (role === "ROLE_DOCTOR") {
+} else if (role === "DOCTOR") {
   navigate("/doctor/dashboard", { replace: true });
-} else if (role === "ROLE_NURSE") {
+} else if (role === "NURSE") {
   navigate("/nurse/dashboard", { replace: true });
-} else if (role === "ROLE_ADMIN") {
+} else if (role === "ADMIN") {
   navigate("/admin/dashboard", { replace: true });
 } else {
   console.error("UNKNOWN ROLE FROM JWT:", role);
   setMsg("Unknown role");
 }
-
 
 
 
