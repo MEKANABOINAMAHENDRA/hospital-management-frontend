@@ -19,7 +19,8 @@ export default function Login() {
 const decoded = jwtDecode(token);
 console.log("JWT DECODED:", decoded);
 
-const role = decoded.role; // ROLE_PATIENT / ROLE_ADMIN / ROLE_DOCTOR / ROLE_NURSE
+// 🔥 FIX SPACE ISSUE
+const role = decoded.role.replace(/\s+/g, "");
 
 localStorage.setItem("token", token);
 localStorage.setItem("role", role);
@@ -36,6 +37,7 @@ if (role === "ROLE_PATIENT") {
   console.error("UNKNOWN ROLE FROM JWT:", role);
   setMsg("Unknown role");
 }
+
 
 
 
