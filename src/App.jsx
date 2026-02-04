@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {  HashRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 /* ===== AUTH ===== */
@@ -52,7 +52,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   return (
-    <BrowserRouter>
+    < HashRouter>
       <div className="app-layout">
       <Navbar />
       
@@ -303,7 +303,7 @@ function App() {
         />
       </Routes>
        </div>
-    </BrowserRouter>
+    </ HashRouter>
   
   );
    
