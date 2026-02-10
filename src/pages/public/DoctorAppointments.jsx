@@ -86,6 +86,13 @@ const DoctorAppointments = () => {
   return (
     <div className="page">
       <h2>My Appointments</h2>
+      <button
+  style={backBtn}
+  onClick={() => navigate("/doctor/dashboard")}
+>
+  ← Back to Dashboard
+</button>
+
 
       {/* ===== SEARCH BAR ===== */}
       <div style={searchBar}>
@@ -250,4 +257,13 @@ const filterBtn = {
   borderRadius: "6px",
   border: "none",
   cursor: "pointer"
+};
+const backBtn = {
+  marginBottom: "15px",
+  padding: "6px 14px",
+  borderRadius: "6px",
+  border: "none",
+  cursor: "pointer",
+  background: "#1976d2",
+  color: "#fff"
 };
