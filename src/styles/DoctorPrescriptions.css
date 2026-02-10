@@ -69,3 +69,18 @@
 .dp-actions button:last-child {
   background: #4caf50;
 }
+.dp-back-btn {
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dp-back-btn:hover {
+  background: #125aa3;
+}
+
