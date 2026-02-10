@@ -36,6 +36,13 @@ const DoctorPrescriptions = () => {
   return (
     <div className="dp-page">
       <h2>My Prescriptions</h2>
+      <button
+  style={backBtn}
+  onClick={() => navigate("/doctor/dashboard")}
+>
+  ← Back to Dashboard
+</button>
+
 
       {prescriptions.map((p) => (
         <div key={p.appointmentId} className="dp-card">
